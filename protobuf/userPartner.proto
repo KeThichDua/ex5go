@@ -1,0 +1,34 @@
+syntax = "proto3";
+package rpc;
+// bai 5
+message UserPartner5{
+    string id = 11;         
+    string user_id = 1;        
+    string partner_id = 3;       
+    string alias_user_id = 5;     
+    map<string, int64> apps = 6;
+    string phone = 7;          
+    int64 created = 10;         
+    int64 updated_at = 12;       
+}
+
+message GetListRequest{}
+
+message UserPartners{}
+
+message CreateUserRequest{}
+
+message CreateUserResponse{}
+
+message UpdateRequest{}
+
+message UpdateResponse{}
+
+service UserPartnerSS {
+    // lay ve list UserPartner 
+    rpc GetList(GetListRequest) returns (UserPartners){};
+    // tao 1 UserPartner
+    rpc Create(CreateUserRequest) returns (CreateUserResponse){};
+    // update UserPartner
+    rpc Update(UpdateRequest) returns (UpdateResponse){};
+}
