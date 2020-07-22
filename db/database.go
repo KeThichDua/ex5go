@@ -43,13 +43,64 @@ func (s *Database) Sync2() error {
 }
 
 // InsertUser de them du lieu user
-func (s *Database) InsertUser(user rpc.UserPartner) error {
+func (s *Database) InsertUser(user *rpc.UserPartner) error {
 	c, err := s.Engine.Insert(user)
 	if c == 0 {
 		return errors.New("Loi khong the insert")
 	}
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+// UpdateUser de sua du lieu user
+func (s *Database) UpdateUser(user *rpc.UserPartner, conditions *rpc.UserPartner) error {
+	c, err := s.Engine.Update(user, conditions)
+	if c == 0 {
+		return errors.New("Khong tim thay user")
+	}
+	if err != nil {
+		return err
+	}
+	return err
+}
+
+// FindUser tim kiem 1 user
+func (s *Database) FindUser(id string) (*rpc.UserPartner, error) {
+	user := &rpc.UserPartner{UserId: id}
+	c, err := s.Engine.Get(user)
+	if err != nil {
+		return nil, err
+	}
+	if !c {
+		return nil, errors.New("Khong tim thay")
+	}
+	return user, nil
+}
+
+// ListUser de liet ke tat ca user
+func (s *Database) ListUser() ([]*rpc.UserPartner, error) {
+	var users []*rpc.UserPartner
+	err := s.Engine.Desc("id").Find(&users)
+	if err != nil {
+		return nil, err
+	}
+	if len(users) == 0 {
+		return nil, errors.New("Database rong")
+	}
+	return users, nil
+}
+
+// DeleteUser tim kiem 1 user
+func (s *Database) DeleteUser(id string) error {
+	user := rpc.UserPartner{UserId: id}
+	c, err := s.Engine.Delete(&user)
+	if err != nil {
+		return err
+	}
+	if c == 0 {
+		return errors.New("Khong tim thay")
 	}
 	return nil
 }

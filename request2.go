@@ -30,7 +30,8 @@ func Run2() {
 		guid := xid.New()
 		guid1 := xid.New()
 		user := rpc.UserPartner{Id: guid.String(), UserId: guid.String(), Phone: guid1.String()}
-		d.InsertUser(user)
+		err = d.InsertUser(&user)
+		ThrowError(err)
 	}
 
 	// thuc hien UserPartnerRequest

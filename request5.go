@@ -35,6 +35,7 @@ func Run5() {
 
 }
 
+// RunGrpcServer chay grpc server
 func RunGrpcServer(ctx context.Context, usv UserPartner5) error {
 	listen, err := net.Listen("tcp", ":3001")
 	if err != nil {

@@ -2,23 +2,21 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/KeThichDua/ex5go/rpc"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 )
 
-type FormUpdate struct {
-	UserId string `json:"user_id" bingding:"required"`
-}
-
+// GRPCClient la grpc client
 type GRPCClient struct {
 	UserRPCClient rpc.UserPartnerService5Client
 }
 
+// GRPC_CLI tao con tro grpc client
 var GRPC_CLI *GRPCClient
 
+// CreateGRPCClient tao grpc client
 func CreateGRPCClient() {
 	conn, err := grpc.Dial(":3001", grpc.WithInsecure())
 	ThrowError(err)
@@ -28,6 +26,7 @@ func CreateGRPCClient() {
 	}
 }
 
+// Start se tao va chay grpc client cung voi router client
 func Start() {
 	CreateGRPCClient()
 	cli := GRPC_CLI.UserRPCClient
@@ -58,19 +57,10 @@ func Start() {
 			c.JSON(200, res)
 		})
 
-		u.GET("/update-user", func(c *gin.Context) {
-			var info FormUpdate
-			err := c.BindJSON(info)
-			if err != nil {
-				fmt.Println(err)
-				c.JSON(400, gin.H{
-					"Ok":  false,
-					"Msg": err.Error(),
-				})
-				return
-			}
+		u.PUT("/update-user/:id", func(c *gin.Context) {
+			id := c.Params.ByName("id")
 			res, err := cli.Update(context.Background(), &rpc.UpdateUserRequest{
-				UserId: info.UserId,
+				UserId: id,
 			})
 			if err != nil {
 				c.JSON(500, gin.H{
@@ -82,5 +72,5 @@ func Start() {
 			c.JSON(200, res)
 		})
 	}
-	app.Run(":1003")
+	app.Run(":3002")
 }

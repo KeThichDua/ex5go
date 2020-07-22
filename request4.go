@@ -35,9 +35,8 @@ func Run4() {
 	}
 }
 
-// RunServer dsad
+// RunServer chay http server
 func RunServer(ctx context.Context, us UserPartnerService) error {
-
 	router := httprouter.New()
 	router.POST("/user-partner", CreateUser)
 	router.GET("/user-partner", ListUser)
@@ -49,6 +48,7 @@ func RunServer(ctx context.Context, us UserPartnerService) error {
 	return http.ListenAndServe(":3000", router)
 }
 
+// CreateUser tao moi userpartner
 func CreateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	guid := xid.New()
 	guid1 := xid.New()
@@ -61,6 +61,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 }
 
+// ListUser liet ke tat ca user
 func ListUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	res, err := us.ReadAll(ctx, nil)
 	ThrowError(err)
@@ -69,6 +70,7 @@ func ListUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 }
 
+// DeleteUser xoa user theo id
 func DeleteUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	req := rpc.DeleteRequest{UserId: ps.ByName("id")}
 	res, err := us.Delete(ctx, &req)
@@ -78,6 +80,7 @@ func DeleteUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	}
 }
 
+// GetUser lay user theo id
 func GetUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	req := rpc.ReadRequest{UserId: ps.ByName("id")}
 	res, err := us.Read(ctx, &req)
