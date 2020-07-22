@@ -21,7 +21,6 @@ message CreateUserRequest{}
 message CreateUserResponse{}
 
 message UpdateUserRequest{
-    string id = 11;
     string user_id = 1;
 }
 

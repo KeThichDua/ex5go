@@ -1,11 +1,15 @@
 package main
 
 import (
+	"context"
+	"fmt"
+
 	"github.com/KeThichDua/ex5go/rpc"
+	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 )
 
-type FormUpdate struct{
+type FormUpdate struct {
 	UserId string `json:"user_id" bingding:"required"`
 }
 
@@ -24,58 +28,59 @@ func CreateGRPCClient() {
 	}
 }
 
-func Start(){
-	createGRPCClient()
+func Start() {
+	CreateGRPCClient()
 	cli := GRPC_CLI.UserRPCClient
 	app := gin.Default()
-	u := app.Group("/"){
-		u.Get("/get-list", func(c *gin.Context){ 
-			res, err := cli.GetList()
-			if err !=nil{
+	u := app.Group("/")
+	{
+		u.GET("/get-list", func(c *gin.Context) {
+			res, err := cli.GetList(ctx, nil)
+			if err != nil {
 				c.JSON(500, gin.H{
-					"Ok": false,
+					"Ok":  false,
 					"Msg": err.Error(),
 				})
 				return
 			}
-			c.JSON(200,res)
+			c.JSON(200, res)
 		})
 
-		u.Get("/create-user", func(c *gin.Context){
-			res, err := cli.Create()
-			if err !=nil{
+		u.POST("/create-user", func(c *gin.Context) {
+			res, err := cli.Create(ctx, nil)
+			if err != nil {
 				c.JSON(500, gin.H{
-					"Ok": false,
+					"Ok":  false,
 					"Msg": err.Error(),
 				})
 				return
 			}
-			c.JSON(200,res)
-		 })
+			c.JSON(200, res)
+		})
 
-		u.Get("/update-user", func(c *gin.Context){
+		u.GET("/update-user", func(c *gin.Context) {
 			var info FormUpdate
-			err := c.BindJSON(&info)
-			if err != nil{
+			err := c.BindJSON(info)
+			if err != nil {
 				fmt.Println(err)
 				c.JSON(400, gin.H{
-					"Ok": false,
+					"Ok":  false,
 					"Msg": err.Error(),
 				})
 				return
 			}
-			res, err := cli.Update(context.Background(), &rpc.FormUpdate{
+			res, err := cli.Update(context.Background(), &rpc.UpdateUserRequest{
 				UserId: info.UserId,
 			})
-			if err !=nil{
+			if err != nil {
 				c.JSON(500, gin.H{
-					"Ok": false,
+					"Ok":  false,
 					"Msg": err.Error(),
 				})
 				return
 			}
-			c.JSON(200,res)
-		 })
+			c.JSON(200, res)
+		})
 	}
 	app.Run(":1003")
 }

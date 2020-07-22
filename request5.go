@@ -27,11 +27,12 @@ func Run5() {
 	ctx = context.Background()
 	usv = UserPartner5{Db: db}
 
-	go server.Start()
+	go Start()
 	if err = RunGrpcServer(ctx, usv); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
+
 }
 
 func RunGrpcServer(ctx context.Context, usv UserPartner5) error {
