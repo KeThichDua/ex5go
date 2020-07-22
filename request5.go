@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var usv UserPartnerSS
+var usv UserPartner5
 
 // Run5 Tài liệu [grpc](https://grpc.io/docs/what-is-grpc/core-concepts/)
 // Tạo 1 service gen code. Tạo 1 grpc server với message `UserPartner`. Nhằm getlist, create, update
@@ -25,15 +25,16 @@ func Run5() {
 	ThrowError(err)
 	defer db.Engine.Close()
 	ctx = context.Background()
-	usv = UserPartnerSS{Db: db}
+	usv = UserPartner5{Db: db}
 
+	go server.Start()
 	if err = RunGrpcServer(ctx, usv); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
 }
 
-func RunGrpcServer(ctx context.Context, usv UserPartnerSS) error {
+func RunGrpcServer(ctx context.Context, usv UserPartner5) error {
 	listen, err := net.Listen("tcp", ":3001")
 	if err != nil {
 		return err
@@ -41,7 +42,7 @@ func RunGrpcServer(ctx context.Context, usv UserPartnerSS) error {
 
 	// register service
 	server := grpc.NewServer()
-	rpc.RegisterUserPartnerServiceServer(server, &usv)
+	rpc.RegisterUserPartnerService5Server(server, &usv)
 
 	// graceful shutdown
 	c := make(chan os.Signal, 1)

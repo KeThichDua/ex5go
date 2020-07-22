@@ -14,21 +14,24 @@ message UserPartner5{
 
 message GetListRequest{}
 
-message UserPartners{}
+message GetListResponse{}
 
 message CreateUserRequest{}
 
 message CreateUserResponse{}
 
-message UpdateRequest{}
+message UpdateUserRequest{
+    string id = 11;
+    string user_id = 1;
+}
 
-message UpdateResponse{}
+message UpdateUserResponse{}
 
-service UserPartnerSS {
+service UserPartnerService5 {
     // lay ve list UserPartner 
-    rpc GetList(GetListRequest) returns (UserPartners){};
+    rpc GetList(GetListRequest) returns (GetListResponse){};
     // tao 1 UserPartner
     rpc Create(CreateUserRequest) returns (CreateUserResponse){};
     // update UserPartner
-    rpc Update(UpdateRequest) returns (UpdateResponse){};
+    rpc Update(UpdateUserRequest) returns (UpdateUserResponse){};
 }

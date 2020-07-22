@@ -171,14 +171,14 @@ func (*GetListRequest) Descriptor() ([]byte, []int) {
 	return file_userPartner_proto_rawDescGZIP(), []int{1}
 }
 
-type UserPartners struct {
+type GetListResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UserPartners) Reset() {
-	*x = UserPartners{}
+func (x *GetListResponse) Reset() {
+	*x = GetListResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_userPartner_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -186,13 +186,13 @@ func (x *UserPartners) Reset() {
 	}
 }
 
-func (x *UserPartners) String() string {
+func (x *GetListResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserPartners) ProtoMessage() {}
+func (*GetListResponse) ProtoMessage() {}
 
-func (x *UserPartners) ProtoReflect() protoreflect.Message {
+func (x *GetListResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_userPartner_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -204,8 +204,8 @@ func (x *UserPartners) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserPartners.ProtoReflect.Descriptor instead.
-func (*UserPartners) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetListResponse.ProtoReflect.Descriptor instead.
+func (*GetListResponse) Descriptor() ([]byte, []int) {
 	return file_userPartner_proto_rawDescGZIP(), []int{2}
 }
 
@@ -285,14 +285,17 @@ func (*CreateUserResponse) Descriptor() ([]byte, []int) {
 	return file_userPartner_proto_rawDescGZIP(), []int{4}
 }
 
-type UpdateRequest struct {
+type UpdateUserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	Id     string `protobuf:"bytes,11,opt,name=id,proto3" json:"id,omitempty"`
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 }
 
-func (x *UpdateRequest) Reset() {
-	*x = UpdateRequest{}
+func (x *UpdateUserRequest) Reset() {
+	*x = UpdateUserRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_userPartner_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -300,13 +303,13 @@ func (x *UpdateRequest) Reset() {
 	}
 }
 
-func (x *UpdateRequest) String() string {
+func (x *UpdateUserRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateRequest) ProtoMessage() {}
+func (*UpdateUserRequest) ProtoMessage() {}
 
-func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
+func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_userPartner_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -318,19 +321,33 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
-func (*UpdateRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateUserRequest.ProtoReflect.Descriptor instead.
+func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
 	return file_userPartner_proto_rawDescGZIP(), []int{5}
 }
 
-type UpdateResponse struct {
+func (x *UpdateUserRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+type UpdateUserResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UpdateResponse) Reset() {
-	*x = UpdateResponse{}
+func (x *UpdateUserResponse) Reset() {
+	*x = UpdateUserResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_userPartner_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -338,13 +355,13 @@ func (x *UpdateResponse) Reset() {
 	}
 }
 
-func (x *UpdateResponse) String() string {
+func (x *UpdateUserResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateResponse) ProtoMessage() {}
+func (*UpdateUserResponse) ProtoMessage() {}
 
-func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
+func (x *UpdateUserResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_userPartner_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -356,8 +373,8 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
-func (*UpdateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateUserResponse.ProtoReflect.Descriptor instead.
+func (*UpdateUserResponse) Descriptor() ([]byte, []int) {
 	return file_userPartner_proto_rawDescGZIP(), []int{6}
 }
 
@@ -386,24 +403,29 @@ var file_userPartner_proto_rawDesc = []byte{
 	0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20,
 	0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x10,
 	0x0a, 0x0e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x22, 0x0e, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x73,
-	0x22, 0x13, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x14, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55,
-	0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x0f, 0x0a, 0x0d, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x10, 0x0a, 0x0e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xb6,
-	0x01, 0x0a, 0x0d, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x53, 0x53,
-	0x12, 0x33, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x13, 0x2e, 0x72, 0x70,
-	0x63, 0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x11, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e,
-	0x65, 0x72, 0x73, 0x22, 0x00, 0x12, 0x3b, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12,
-	0x16, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x33, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x12, 0x2e, 0x72,
-	0x70, 0x63, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x13, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x11, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x13, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65,
+	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x14, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3c,
+	0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x02, 0x69, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x14, 0x0a, 0x12,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x32, 0xc7, 0x01, 0x0a, 0x13, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e,
+	0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x35, 0x12, 0x36, 0x0a, 0x07, 0x47, 0x65,
+	0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x13, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x47, 0x65, 0x74, 0x4c,
+	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x72, 0x70, 0x63,
+	0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x3b, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x72,
+	0x70, 0x63, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x3b, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x72, 0x70, 0x63, 0x2e,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x17, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73,
+	0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -422,21 +444,21 @@ var file_userPartner_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_userPartner_proto_goTypes = []interface{}{
 	(*UserPartner5)(nil),       // 0: rpc.UserPartner5
 	(*GetListRequest)(nil),     // 1: rpc.GetListRequest
-	(*UserPartners)(nil),       // 2: rpc.UserPartners
+	(*GetListResponse)(nil),    // 2: rpc.GetListResponse
 	(*CreateUserRequest)(nil),  // 3: rpc.CreateUserRequest
 	(*CreateUserResponse)(nil), // 4: rpc.CreateUserResponse
-	(*UpdateRequest)(nil),      // 5: rpc.UpdateRequest
-	(*UpdateResponse)(nil),     // 6: rpc.UpdateResponse
+	(*UpdateUserRequest)(nil),  // 5: rpc.UpdateUserRequest
+	(*UpdateUserResponse)(nil), // 6: rpc.UpdateUserResponse
 	nil,                        // 7: rpc.UserPartner5.AppsEntry
 }
 var file_userPartner_proto_depIdxs = []int32{
 	7, // 0: rpc.UserPartner5.apps:type_name -> rpc.UserPartner5.AppsEntry
-	1, // 1: rpc.UserPartnerSS.GetList:input_type -> rpc.GetListRequest
-	3, // 2: rpc.UserPartnerSS.Create:input_type -> rpc.CreateUserRequest
-	5, // 3: rpc.UserPartnerSS.Update:input_type -> rpc.UpdateRequest
-	2, // 4: rpc.UserPartnerSS.GetList:output_type -> rpc.UserPartners
-	4, // 5: rpc.UserPartnerSS.Create:output_type -> rpc.CreateUserResponse
-	6, // 6: rpc.UserPartnerSS.Update:output_type -> rpc.UpdateResponse
+	1, // 1: rpc.UserPartnerService5.GetList:input_type -> rpc.GetListRequest
+	3, // 2: rpc.UserPartnerService5.Create:input_type -> rpc.CreateUserRequest
+	5, // 3: rpc.UserPartnerService5.Update:input_type -> rpc.UpdateUserRequest
+	2, // 4: rpc.UserPartnerService5.GetList:output_type -> rpc.GetListResponse
+	4, // 5: rpc.UserPartnerService5.Create:output_type -> rpc.CreateUserResponse
+	6, // 6: rpc.UserPartnerService5.Update:output_type -> rpc.UpdateUserResponse
 	4, // [4:7] is the sub-list for method output_type
 	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -475,7 +497,7 @@ func file_userPartner_proto_init() {
 			}
 		}
 		file_userPartner_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UserPartners); i {
+			switch v := v.(*GetListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -511,7 +533,7 @@ func file_userPartner_proto_init() {
 			}
 		}
 		file_userPartner_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRequest); i {
+			switch v := v.(*UpdateUserRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -523,7 +545,7 @@ func file_userPartner_proto_init() {
 			}
 		}
 		file_userPartner_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateResponse); i {
+			switch v := v.(*UpdateUserResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -563,150 +585,150 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// UserPartnerSSClient is the client API for UserPartnerSS service.
+// UserPartnerService5Client is the client API for UserPartnerService5 service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type UserPartnerSSClient interface {
+type UserPartnerService5Client interface {
 	// lay ve list UserPartner
-	GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*UserPartners, error)
+	GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error)
 	// tao 1 UserPartner
 	Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 	// update UserPartner
-	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+	Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
 }
 
-type userPartnerSSClient struct {
+type userPartnerService5Client struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUserPartnerSSClient(cc grpc.ClientConnInterface) UserPartnerSSClient {
-	return &userPartnerSSClient{cc}
+func NewUserPartnerService5Client(cc grpc.ClientConnInterface) UserPartnerService5Client {
+	return &userPartnerService5Client{cc}
 }
 
-func (c *userPartnerSSClient) GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*UserPartners, error) {
-	out := new(UserPartners)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerSS/GetList", in, out, opts...)
+func (c *userPartnerService5Client) GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error) {
+	out := new(GetListResponse)
+	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/GetList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userPartnerSSClient) Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
+func (c *userPartnerService5Client) Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	out := new(CreateUserResponse)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerSS/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userPartnerSSClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
-	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerSS/Update", in, out, opts...)
+func (c *userPartnerService5Client) Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
+	out := new(UpdateUserResponse)
+	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UserPartnerSSServer is the server API for UserPartnerSS service.
-type UserPartnerSSServer interface {
+// UserPartnerService5Server is the server API for UserPartnerService5 service.
+type UserPartnerService5Server interface {
 	// lay ve list UserPartner
-	GetList(context.Context, *GetListRequest) (*UserPartners, error)
+	GetList(context.Context, *GetListRequest) (*GetListResponse, error)
 	// tao 1 UserPartner
 	Create(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	// update UserPartner
-	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	Update(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
 }
 
-// UnimplementedUserPartnerSSServer can be embedded to have forward compatible implementations.
-type UnimplementedUserPartnerSSServer struct {
+// UnimplementedUserPartnerService5Server can be embedded to have forward compatible implementations.
+type UnimplementedUserPartnerService5Server struct {
 }
 
-func (*UnimplementedUserPartnerSSServer) GetList(context.Context, *GetListRequest) (*UserPartners, error) {
+func (*UnimplementedUserPartnerService5Server) GetList(context.Context, *GetListRequest) (*GetListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetList not implemented")
 }
-func (*UnimplementedUserPartnerSSServer) Create(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
+func (*UnimplementedUserPartnerService5Server) Create(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedUserPartnerSSServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+func (*UnimplementedUserPartnerService5Server) Update(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 
-func RegisterUserPartnerSSServer(s *grpc.Server, srv UserPartnerSSServer) {
-	s.RegisterService(&_UserPartnerSS_serviceDesc, srv)
+func RegisterUserPartnerService5Server(s *grpc.Server, srv UserPartnerService5Server) {
+	s.RegisterService(&_UserPartnerService5_serviceDesc, srv)
 }
 
-func _UserPartnerSS_GetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserPartnerService5_GetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerSSServer).GetList(ctx, in)
+		return srv.(UserPartnerService5Server).GetList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerSS/GetList",
+		FullMethod: "/rpc.UserPartnerService5/GetList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerSSServer).GetList(ctx, req.(*GetListRequest))
+		return srv.(UserPartnerService5Server).GetList(ctx, req.(*GetListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserPartnerSS_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserPartnerService5_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerSSServer).Create(ctx, in)
+		return srv.(UserPartnerService5Server).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerSS/Create",
+		FullMethod: "/rpc.UserPartnerService5/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerSSServer).Create(ctx, req.(*CreateUserRequest))
+		return srv.(UserPartnerService5Server).Create(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserPartnerSS_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRequest)
+func _UserPartnerService5_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerSSServer).Update(ctx, in)
+		return srv.(UserPartnerService5Server).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerSS/Update",
+		FullMethod: "/rpc.UserPartnerService5/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerSSServer).Update(ctx, req.(*UpdateRequest))
+		return srv.(UserPartnerService5Server).Update(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _UserPartnerSS_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.UserPartnerSS",
-	HandlerType: (*UserPartnerSSServer)(nil),
+var _UserPartnerService5_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "rpc.UserPartnerService5",
+	HandlerType: (*UserPartnerService5Server)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetList",
-			Handler:    _UserPartnerSS_GetList_Handler,
+			Handler:    _UserPartnerService5_GetList_Handler,
 		},
 		{
 			MethodName: "Create",
-			Handler:    _UserPartnerSS_Create_Handler,
+			Handler:    _UserPartnerService5_Create_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _UserPartnerSS_Update_Handler,
+			Handler:    _UserPartnerService5_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
