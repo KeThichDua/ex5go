@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/KeThichDua/ex5go/reqres5"
+)
 
 func main() {
-	// Run2()
-	// Run3()
-	// Run4()
-	Run5()
+	Run2()
+	Run3()
+	Run4()
+	reqres5.Run5()
 	fmt.Println("done")
 }

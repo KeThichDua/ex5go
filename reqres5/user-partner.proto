@@ -1,7 +1,7 @@
 syntax = "proto3";
-package rpc;
+package reqres5;
 // bai 5
-message UserPartner5{
+message UserPartner{
     string id = 11;         
     string user_id = 1;        
     string partner_id = 3;       
@@ -26,7 +26,7 @@ message UpdateUserRequest{
 
 message UpdateUserResponse{}
 
-service UserPartnerService5 {
+service UserPartnerService {
     // lay ve list UserPartner 
     rpc GetList(GetListRequest) returns (GetListResponse){};
     // tao 1 UserPartner

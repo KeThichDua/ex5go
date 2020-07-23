@@ -17,23 +17,43 @@ func (s *UserPartnerService) Request(ctx context.Context, in *rpc.UserPartnerReq
 }
 
 func (s *UserPartnerService) Read(ctx context.Context, in *rpc.ReadRequest) (*rpc.ReadResponse, error) {
-	c, err := s.Db.FindUser(in.UserId)
+	c, err := s.Db.GetUser(in.UserId)
 	if err != nil {
 		return nil, err
 	}
+	temp := rpc.UserPartner{
+		Id:          c.Id,
+		UserId:      c.UserId,
+		PartnerId:   c.PartnerId,
+		AliasUserId: c.AliasUserId,
+		Apps:        c.Apps,
+		Phone:       c.Phone,
+		Created:     c.Created,
+		UpdatedAt:   c.UpdatedAt,
+	}
 	return &rpc.ReadResponse{
-		UserPartner: c,
+		UserPartner: &temp,
 	}, nil
 }
 
 // Create tao user
 func (s *UserPartnerService) Create(ctx context.Context, in *rpc.CreateRequest) (*rpc.CreateResponse, error) {
-	err := s.Db.InsertUser(in.UserPartner)
+	temp := db.UserPartner{
+		Id:          in.UserPartner.Id,
+		UserId:      in.UserPartner.UserId,
+		PartnerId:   in.UserPartner.PartnerId,
+		AliasUserId: in.UserPartner.AliasUserId,
+		Apps:        in.UserPartner.Apps,
+		Phone:       in.UserPartner.Phone,
+		Created:     in.UserPartner.Created,
+		UpdatedAt:   in.UserPartner.UpdatedAt,
+	}
+	err := s.Db.InsertUser(temp)
 	if err != nil {
 		return nil, err
 	}
 	return &rpc.CreateResponse{
-		UserId: "success",
+		UserId: temp.UserId,
 	}, nil
 }
 
@@ -43,14 +63,31 @@ func (s *UserPartnerService) ReadAll(ctx context.Context, in *rpc.ReadAllRequest
 	if err != nil {
 		return nil, err
 	}
+	var users []*rpc.UserPartner
+	for i := range list {
+		temp := rpc.UserPartner{
+			Id:          list[i].Id,
+			UserId:      list[i].UserId,
+			PartnerId:   list[i].PartnerId,
+			AliasUserId: list[i].AliasUserId,
+			Apps:        list[i].Apps,
+			Phone:       list[i].Phone,
+			Created:     list[i].Created,
+			UpdatedAt:   list[i].UpdatedAt,
+		}
+		users = append(users, &temp)
+	}
 	return &rpc.ReadAllResponse{
-		UserPartners: list,
+		UserPartners: users,
 	}, nil
 }
 
 // Delete xoa user theo id
 func (s *UserPartnerService) Delete(ctx context.Context, in *rpc.DeleteRequest) (*rpc.DeleteResponse, error) {
-	err := s.Db.DeleteUser(in.UserId)
+	temp := db.UserPartner{
+		Id: in.UserId,
+	}
+	err := s.Db.DeleteUser(temp)
 	if err != nil {
 		return nil, err
 	}

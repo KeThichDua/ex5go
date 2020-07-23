@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.25.0-devel
 // 	protoc        v3.12.3
-// source: userPartner.proto
+// source: user-partner.proto
 
-package rpc
+package reqres5
 
 import (
 	context "context"
@@ -30,7 +30,7 @@ const (
 const _ = proto.ProtoPackageIsVersion4
 
 // bai 5
-type UserPartner5 struct {
+type UserPartner struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -45,23 +45,23 @@ type UserPartner5 struct {
 	UpdatedAt   int64            `protobuf:"varint,12,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 }
 
-func (x *UserPartner5) Reset() {
-	*x = UserPartner5{}
+func (x *UserPartner) Reset() {
+	*x = UserPartner{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[0]
+		mi := &file_user_partner_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *UserPartner5) String() string {
+func (x *UserPartner) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserPartner5) ProtoMessage() {}
+func (*UserPartner) ProtoMessage() {}
 
-func (x *UserPartner5) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[0]
+func (x *UserPartner) ProtoReflect() protoreflect.Message {
+	mi := &file_user_partner_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -72,61 +72,61 @@ func (x *UserPartner5) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserPartner5.ProtoReflect.Descriptor instead.
-func (*UserPartner5) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use UserPartner.ProtoReflect.Descriptor instead.
+func (*UserPartner) Descriptor() ([]byte, []int) {
+	return file_user_partner_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *UserPartner5) GetId() string {
+func (x *UserPartner) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UserPartner5) GetUserId() string {
+func (x *UserPartner) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
 	return ""
 }
 
-func (x *UserPartner5) GetPartnerId() string {
+func (x *UserPartner) GetPartnerId() string {
 	if x != nil {
 		return x.PartnerId
 	}
 	return ""
 }
 
-func (x *UserPartner5) GetAliasUserId() string {
+func (x *UserPartner) GetAliasUserId() string {
 	if x != nil {
 		return x.AliasUserId
 	}
 	return ""
 }
 
-func (x *UserPartner5) GetApps() map[string]int64 {
+func (x *UserPartner) GetApps() map[string]int64 {
 	if x != nil {
 		return x.Apps
 	}
 	return nil
 }
 
-func (x *UserPartner5) GetPhone() string {
+func (x *UserPartner) GetPhone() string {
 	if x != nil {
 		return x.Phone
 	}
 	return ""
 }
 
-func (x *UserPartner5) GetCreated() int64 {
+func (x *UserPartner) GetCreated() int64 {
 	if x != nil {
 		return x.Created
 	}
 	return 0
 }
 
-func (x *UserPartner5) GetUpdatedAt() int64 {
+func (x *UserPartner) GetUpdatedAt() int64 {
 	if x != nil {
 		return x.UpdatedAt
 	}
@@ -142,7 +142,7 @@ type GetListRequest struct {
 func (x *GetListRequest) Reset() {
 	*x = GetListRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[1]
+		mi := &file_user_partner_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -155,7 +155,7 @@ func (x *GetListRequest) String() string {
 func (*GetListRequest) ProtoMessage() {}
 
 func (x *GetListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[1]
+	mi := &file_user_partner_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,7 +168,7 @@ func (x *GetListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetListRequest.ProtoReflect.Descriptor instead.
 func (*GetListRequest) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{1}
+	return file_user_partner_proto_rawDescGZIP(), []int{1}
 }
 
 type GetListResponse struct {
@@ -180,7 +180,7 @@ type GetListResponse struct {
 func (x *GetListResponse) Reset() {
 	*x = GetListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[2]
+		mi := &file_user_partner_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -193,7 +193,7 @@ func (x *GetListResponse) String() string {
 func (*GetListResponse) ProtoMessage() {}
 
 func (x *GetListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[2]
+	mi := &file_user_partner_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -206,7 +206,7 @@ func (x *GetListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetListResponse.ProtoReflect.Descriptor instead.
 func (*GetListResponse) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{2}
+	return file_user_partner_proto_rawDescGZIP(), []int{2}
 }
 
 type CreateUserRequest struct {
@@ -218,7 +218,7 @@ type CreateUserRequest struct {
 func (x *CreateUserRequest) Reset() {
 	*x = CreateUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[3]
+		mi := &file_user_partner_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -231,7 +231,7 @@ func (x *CreateUserRequest) String() string {
 func (*CreateUserRequest) ProtoMessage() {}
 
 func (x *CreateUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[3]
+	mi := &file_user_partner_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -244,7 +244,7 @@ func (x *CreateUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserRequest) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{3}
+	return file_user_partner_proto_rawDescGZIP(), []int{3}
 }
 
 type CreateUserResponse struct {
@@ -256,7 +256,7 @@ type CreateUserResponse struct {
 func (x *CreateUserResponse) Reset() {
 	*x = CreateUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[4]
+		mi := &file_user_partner_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -269,7 +269,7 @@ func (x *CreateUserResponse) String() string {
 func (*CreateUserResponse) ProtoMessage() {}
 
 func (x *CreateUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[4]
+	mi := &file_user_partner_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -282,7 +282,7 @@ func (x *CreateUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserResponse.ProtoReflect.Descriptor instead.
 func (*CreateUserResponse) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{4}
+	return file_user_partner_proto_rawDescGZIP(), []int{4}
 }
 
 type UpdateUserRequest struct {
@@ -296,7 +296,7 @@ type UpdateUserRequest struct {
 func (x *UpdateUserRequest) Reset() {
 	*x = UpdateUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[5]
+		mi := &file_user_partner_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -309,7 +309,7 @@ func (x *UpdateUserRequest) String() string {
 func (*UpdateUserRequest) ProtoMessage() {}
 
 func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[5]
+	mi := &file_user_partner_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,7 +322,7 @@ func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserRequest.ProtoReflect.Descriptor instead.
 func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{5}
+	return file_user_partner_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateUserRequest) GetUserId() string {
@@ -341,7 +341,7 @@ type UpdateUserResponse struct {
 func (x *UpdateUserResponse) Reset() {
 	*x = UpdateUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_userPartner_proto_msgTypes[6]
+		mi := &file_user_partner_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -354,7 +354,7 @@ func (x *UpdateUserResponse) String() string {
 func (*UpdateUserResponse) ProtoMessage() {}
 
 func (x *UpdateUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_userPartner_proto_msgTypes[6]
+	mi := &file_user_partner_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -367,89 +367,91 @@ func (x *UpdateUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserResponse.ProtoReflect.Descriptor instead.
 func (*UpdateUserResponse) Descriptor() ([]byte, []int) {
-	return file_userPartner_proto_rawDescGZIP(), []int{6}
+	return file_user_partner_proto_rawDescGZIP(), []int{6}
 }
 
-var File_userPartner_proto protoreflect.FileDescriptor
+var File_user_partner_proto protoreflect.FileDescriptor
 
-var file_userPartner_proto_rawDesc = []byte{
-	0x0a, 0x11, 0x75, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x12, 0x03, 0x72, 0x70, 0x63, 0x22, 0xb3, 0x02, 0x0a, 0x0c, 0x55, 0x73, 0x65,
-	0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x35, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
-	0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65,
-	0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72,
-	0x49, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x5f, 0x69, 0x64,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x49,
-	0x64, 0x12, 0x22, 0x0a, 0x0d, 0x61, 0x6c, 0x69, 0x61, 0x73, 0x5f, 0x75, 0x73, 0x65, 0x72, 0x5f,
-	0x69, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x6c, 0x69, 0x61, 0x73, 0x55,
-	0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x2f, 0x0a, 0x04, 0x61, 0x70, 0x70, 0x73, 0x18, 0x06, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61,
-	0x72, 0x74, 0x6e, 0x65, 0x72, 0x35, 0x2e, 0x41, 0x70, 0x70, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79,
-	0x52, 0x04, 0x61, 0x70, 0x70, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x18,
-	0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x03, 0x52, 0x07, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x64, 0x5f, 0x61, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x64, 0x41, 0x74, 0x1a, 0x37, 0x0a, 0x09, 0x41, 0x70, 0x70, 0x73, 0x45, 0x6e, 0x74,
-	0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x10,
-	0x0a, 0x0e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x22, 0x11, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x13, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65,
-	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x14, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61,
-	0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2c,
-	0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x14, 0x0a, 0x12,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x32, 0xc7, 0x01, 0x0a, 0x13, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e,
-	0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x35, 0x12, 0x36, 0x0a, 0x07, 0x47, 0x65,
-	0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x13, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x47, 0x65, 0x74, 0x4c,
-	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x72, 0x70, 0x63,
-	0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x3b, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x72,
-	0x70, 0x63, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x3b, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x72, 0x70, 0x63, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x17, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73,
-	0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+var file_user_partner_proto_rawDesc = []byte{
+	0x0a, 0x12, 0x75, 0x73, 0x65, 0x72, 0x2d, 0x70, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x72, 0x65, 0x71, 0x72, 0x65, 0x73, 0x35, 0x22, 0xb5, 0x02,
+	0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x12, 0x0e, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x17, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x61, 0x72, 0x74, 0x6e, 0x65,
+	0x72, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x61, 0x72, 0x74,
+	0x6e, 0x65, 0x72, 0x49, 0x64, 0x12, 0x22, 0x0a, 0x0d, 0x61, 0x6c, 0x69, 0x61, 0x73, 0x5f, 0x75,
+	0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x6c,
+	0x69, 0x61, 0x73, 0x55, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x32, 0x0a, 0x04, 0x61, 0x70, 0x70,
+	0x73, 0x18, 0x06, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x72, 0x65, 0x71, 0x72, 0x65, 0x73,
+	0x35, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x2e, 0x41, 0x70,
+	0x70, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x04, 0x61, 0x70, 0x70, 0x73, 0x12, 0x14, 0x0a,
+	0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68,
+	0x6f, 0x6e, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x18, 0x0a,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x12, 0x1d, 0x0a,
+	0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x1a, 0x37, 0x0a, 0x09,
+	0x41, 0x70, 0x70, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x10, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x11, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4c, 0x69,
+	0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x13, 0x0a, 0x11, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
+	0x14, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2c, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55,
+	0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73,
+	0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65,
+	0x72, 0x49, 0x64, 0x22, 0x14, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65,
+	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xde, 0x01, 0x0a, 0x12, 0x55, 0x73,
+	0x65, 0x72, 0x50, 0x61, 0x72, 0x74, 0x6e, 0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x12, 0x3e, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x17, 0x2e, 0x72, 0x65,
+	0x71, 0x72, 0x65, 0x73, 0x35, 0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x72, 0x65, 0x71, 0x72, 0x65, 0x73, 0x35, 0x2e, 0x47,
+	0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x12, 0x43, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x1a, 0x2e, 0x72, 0x65, 0x71,
+	0x72, 0x65, 0x73, 0x35, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x72, 0x65, 0x71, 0x72, 0x65, 0x73, 0x35,
+	0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x43, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12,
+	0x1a, 0x2e, 0x72, 0x65, 0x71, 0x72, 0x65, 0x73, 0x35, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x72, 0x65,
+	0x71, 0x72, 0x65, 0x73, 0x35, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
-	file_userPartner_proto_rawDescOnce sync.Once
-	file_userPartner_proto_rawDescData = file_userPartner_proto_rawDesc
+	file_user_partner_proto_rawDescOnce sync.Once
+	file_user_partner_proto_rawDescData = file_user_partner_proto_rawDesc
 )
 
-func file_userPartner_proto_rawDescGZIP() []byte {
-	file_userPartner_proto_rawDescOnce.Do(func() {
-		file_userPartner_proto_rawDescData = protoimpl.X.CompressGZIP(file_userPartner_proto_rawDescData)
+func file_user_partner_proto_rawDescGZIP() []byte {
+	file_user_partner_proto_rawDescOnce.Do(func() {
+		file_user_partner_proto_rawDescData = protoimpl.X.CompressGZIP(file_user_partner_proto_rawDescData)
 	})
-	return file_userPartner_proto_rawDescData
+	return file_user_partner_proto_rawDescData
 }
 
-var file_userPartner_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_userPartner_proto_goTypes = []interface{}{
-	(*UserPartner5)(nil),       // 0: rpc.UserPartner5
-	(*GetListRequest)(nil),     // 1: rpc.GetListRequest
-	(*GetListResponse)(nil),    // 2: rpc.GetListResponse
-	(*CreateUserRequest)(nil),  // 3: rpc.CreateUserRequest
-	(*CreateUserResponse)(nil), // 4: rpc.CreateUserResponse
-	(*UpdateUserRequest)(nil),  // 5: rpc.UpdateUserRequest
-	(*UpdateUserResponse)(nil), // 6: rpc.UpdateUserResponse
-	nil,                        // 7: rpc.UserPartner5.AppsEntry
+var file_user_partner_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_user_partner_proto_goTypes = []interface{}{
+	(*UserPartner)(nil),        // 0: reqres5.UserPartner
+	(*GetListRequest)(nil),     // 1: reqres5.GetListRequest
+	(*GetListResponse)(nil),    // 2: reqres5.GetListResponse
+	(*CreateUserRequest)(nil),  // 3: reqres5.CreateUserRequest
+	(*CreateUserResponse)(nil), // 4: reqres5.CreateUserResponse
+	(*UpdateUserRequest)(nil),  // 5: reqres5.UpdateUserRequest
+	(*UpdateUserResponse)(nil), // 6: reqres5.UpdateUserResponse
+	nil,                        // 7: reqres5.UserPartner.AppsEntry
 }
-var file_userPartner_proto_depIdxs = []int32{
-	7, // 0: rpc.UserPartner5.apps:type_name -> rpc.UserPartner5.AppsEntry
-	1, // 1: rpc.UserPartnerService5.GetList:input_type -> rpc.GetListRequest
-	3, // 2: rpc.UserPartnerService5.Create:input_type -> rpc.CreateUserRequest
-	5, // 3: rpc.UserPartnerService5.Update:input_type -> rpc.UpdateUserRequest
-	2, // 4: rpc.UserPartnerService5.GetList:output_type -> rpc.GetListResponse
-	4, // 5: rpc.UserPartnerService5.Create:output_type -> rpc.CreateUserResponse
-	6, // 6: rpc.UserPartnerService5.Update:output_type -> rpc.UpdateUserResponse
+var file_user_partner_proto_depIdxs = []int32{
+	7, // 0: reqres5.UserPartner.apps:type_name -> reqres5.UserPartner.AppsEntry
+	1, // 1: reqres5.UserPartnerService.GetList:input_type -> reqres5.GetListRequest
+	3, // 2: reqres5.UserPartnerService.Create:input_type -> reqres5.CreateUserRequest
+	5, // 3: reqres5.UserPartnerService.Update:input_type -> reqres5.UpdateUserRequest
+	2, // 4: reqres5.UserPartnerService.GetList:output_type -> reqres5.GetListResponse
+	4, // 5: reqres5.UserPartnerService.Create:output_type -> reqres5.CreateUserResponse
+	6, // 6: reqres5.UserPartnerService.Update:output_type -> reqres5.UpdateUserResponse
 	4, // [4:7] is the sub-list for method output_type
 	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -457,14 +459,14 @@ var file_userPartner_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_userPartner_proto_init() }
-func file_userPartner_proto_init() {
-	if File_userPartner_proto != nil {
+func init() { file_user_partner_proto_init() }
+func file_user_partner_proto_init() {
+	if File_user_partner_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_userPartner_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UserPartner5); i {
+		file_user_partner_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UserPartner); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -475,7 +477,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetListRequest); i {
 			case 0:
 				return &v.state
@@ -487,7 +489,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetListResponse); i {
 			case 0:
 				return &v.state
@@ -499,7 +501,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateUserRequest); i {
 			case 0:
 				return &v.state
@@ -511,7 +513,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateUserResponse); i {
 			case 0:
 				return &v.state
@@ -523,7 +525,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserRequest); i {
 			case 0:
 				return &v.state
@@ -535,7 +537,7 @@ func file_userPartner_proto_init() {
 				return nil
 			}
 		}
-		file_userPartner_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_user_partner_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserResponse); i {
 			case 0:
 				return &v.state
@@ -552,20 +554,20 @@ func file_userPartner_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_userPartner_proto_rawDesc,
+			RawDescriptor: file_user_partner_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_userPartner_proto_goTypes,
-		DependencyIndexes: file_userPartner_proto_depIdxs,
-		MessageInfos:      file_userPartner_proto_msgTypes,
+		GoTypes:           file_user_partner_proto_goTypes,
+		DependencyIndexes: file_user_partner_proto_depIdxs,
+		MessageInfos:      file_user_partner_proto_msgTypes,
 	}.Build()
-	File_userPartner_proto = out.File
-	file_userPartner_proto_rawDesc = nil
-	file_userPartner_proto_goTypes = nil
-	file_userPartner_proto_depIdxs = nil
+	File_user_partner_proto = out.File
+	file_user_partner_proto_rawDesc = nil
+	file_user_partner_proto_goTypes = nil
+	file_user_partner_proto_depIdxs = nil
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -576,10 +578,10 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// UserPartnerService5Client is the client API for UserPartnerService5 service.
+// UserPartnerServiceClient is the client API for UserPartnerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type UserPartnerService5Client interface {
+type UserPartnerServiceClient interface {
 	// lay ve list UserPartner
 	GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error)
 	// tao 1 UserPartner
@@ -588,43 +590,43 @@ type UserPartnerService5Client interface {
 	Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
 }
 
-type userPartnerService5Client struct {
+type userPartnerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUserPartnerService5Client(cc grpc.ClientConnInterface) UserPartnerService5Client {
-	return &userPartnerService5Client{cc}
+func NewUserPartnerServiceClient(cc grpc.ClientConnInterface) UserPartnerServiceClient {
+	return &userPartnerServiceClient{cc}
 }
 
-func (c *userPartnerService5Client) GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error) {
+func (c *userPartnerServiceClient) GetList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error) {
 	out := new(GetListResponse)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/GetList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reqres5.UserPartnerService/GetList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userPartnerService5Client) Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
+func (c *userPartnerServiceClient) Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	out := new(CreateUserResponse)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reqres5.UserPartnerService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userPartnerService5Client) Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
+func (c *userPartnerServiceClient) Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	out := new(UpdateUserResponse)
-	err := c.cc.Invoke(ctx, "/rpc.UserPartnerService5/Update", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reqres5.UserPartnerService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UserPartnerService5Server is the server API for UserPartnerService5 service.
-type UserPartnerService5Server interface {
+// UserPartnerServiceServer is the server API for UserPartnerService service.
+type UserPartnerServiceServer interface {
 	// lay ve list UserPartner
 	GetList(context.Context, *GetListRequest) (*GetListResponse, error)
 	// tao 1 UserPartner
@@ -633,95 +635,95 @@ type UserPartnerService5Server interface {
 	Update(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
 }
 
-// UnimplementedUserPartnerService5Server can be embedded to have forward compatible implementations.
-type UnimplementedUserPartnerService5Server struct {
+// UnimplementedUserPartnerServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedUserPartnerServiceServer struct {
 }
 
-func (*UnimplementedUserPartnerService5Server) GetList(context.Context, *GetListRequest) (*GetListResponse, error) {
+func (*UnimplementedUserPartnerServiceServer) GetList(context.Context, *GetListRequest) (*GetListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetList not implemented")
 }
-func (*UnimplementedUserPartnerService5Server) Create(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
+func (*UnimplementedUserPartnerServiceServer) Create(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedUserPartnerService5Server) Update(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
+func (*UnimplementedUserPartnerServiceServer) Update(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 
-func RegisterUserPartnerService5Server(s *grpc.Server, srv UserPartnerService5Server) {
-	s.RegisterService(&_UserPartnerService5_serviceDesc, srv)
+func RegisterUserPartnerServiceServer(s *grpc.Server, srv UserPartnerServiceServer) {
+	s.RegisterService(&_UserPartnerService_serviceDesc, srv)
 }
 
-func _UserPartnerService5_GetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserPartnerService_GetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerService5Server).GetList(ctx, in)
+		return srv.(UserPartnerServiceServer).GetList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerService5/GetList",
+		FullMethod: "/reqres5.UserPartnerService/GetList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerService5Server).GetList(ctx, req.(*GetListRequest))
+		return srv.(UserPartnerServiceServer).GetList(ctx, req.(*GetListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserPartnerService5_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserPartnerService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerService5Server).Create(ctx, in)
+		return srv.(UserPartnerServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerService5/Create",
+		FullMethod: "/reqres5.UserPartnerService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerService5Server).Create(ctx, req.(*CreateUserRequest))
+		return srv.(UserPartnerServiceServer).Create(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserPartnerService5_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserPartnerService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserPartnerService5Server).Update(ctx, in)
+		return srv.(UserPartnerServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.UserPartnerService5/Update",
+		FullMethod: "/reqres5.UserPartnerService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserPartnerService5Server).Update(ctx, req.(*UpdateUserRequest))
+		return srv.(UserPartnerServiceServer).Update(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _UserPartnerService5_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.UserPartnerService5",
-	HandlerType: (*UserPartnerService5Server)(nil),
+var _UserPartnerService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "reqres5.UserPartnerService",
+	HandlerType: (*UserPartnerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetList",
-			Handler:    _UserPartnerService5_GetList_Handler,
+			Handler:    _UserPartnerService_GetList_Handler,
 		},
 		{
 			MethodName: "Create",
-			Handler:    _UserPartnerService5_Create_Handler,
+			Handler:    _UserPartnerService_Create_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _UserPartnerService5_Update_Handler,
+			Handler:    _UserPartnerService_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "userPartner.proto",
+	Metadata: "user-partner.proto",
 }

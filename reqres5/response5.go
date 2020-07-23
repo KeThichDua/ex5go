@@ -1,16 +1,15 @@
-package main
+package reqres5
 
 import (
-	"context"
+	"log"
 
-	"github.com/KeThichDua/ex5go/rpc"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 )
 
 // GRPCClient la grpc client
 type GRPCClient struct {
-	UserRPCClient rpc.UserPartnerService5Client
+	UserRPCClient UserPartnerServiceClient
 }
 
 // GRPC_CLI tao con tro grpc client
@@ -19,10 +18,12 @@ var GRPC_CLI *GRPCClient
 // CreateGRPCClient tao grpc client
 func CreateGRPCClient() {
 	conn, err := grpc.Dial(":3001", grpc.WithInsecure())
-	ThrowError(err)
+	if err != nil {
+		log.Println(err)
+	}
 
 	GRPC_CLI = &GRPCClient{
-		UserRPCClient: rpc.NewUserPartnerService5Client(conn),
+		UserRPCClient: NewUserPartnerServiceClient(conn),
 	}
 }
 
@@ -34,7 +35,7 @@ func Start() {
 	u := app.Group("/")
 	{
 		u.GET("/get-list", func(c *gin.Context) {
-			res, err := cli.GetList(ctx, nil)
+			res, err := cli.GetList(ctx, &GetListRequest{})
 			if err != nil {
 				c.JSON(500, gin.H{
 					"Ok":  false,
@@ -46,7 +47,7 @@ func Start() {
 		})
 
 		u.POST("/create-user", func(c *gin.Context) {
-			res, err := cli.Create(ctx, nil)
+			res, err := cli.Create(ctx, &CreateUserRequest{})
 			if err != nil {
 				c.JSON(500, gin.H{
 					"Ok":  false,
@@ -59,7 +60,7 @@ func Start() {
 
 		u.PUT("/update-user/:id", func(c *gin.Context) {
 			id := c.Params.ByName("id")
-			res, err := cli.Update(context.Background(), &rpc.UpdateUserRequest{
+			res, err := cli.Update(ctx, &UpdateUserRequest{
 				UserId: id,
 			})
 			if err != nil {

@@ -1,4 +1,4 @@
-package main
+package reqres5
 
 import (
 	"context"
@@ -9,11 +9,11 @@ import (
 	"os/signal"
 
 	"github.com/KeThichDua/ex5go/db"
-	"github.com/KeThichDua/ex5go/rpc"
 	"google.golang.org/grpc"
 )
 
-var usv UserPartner5
+var usv UserPartnerService
+var ctx context.Context
 
 // Run5 Tài liệu [grpc](https://grpc.io/docs/what-is-grpc/core-concepts/)
 // Tạo 1 service gen code. Tạo 1 grpc server với message `UserPartner`. Nhằm getlist, create, update
@@ -21,14 +21,15 @@ var usv UserPartner5
 func Run5() {
 	// ket noi mysql
 	var db db.Database
-	err := db.Connect("mysql", "root:1@tcp(0.0.0.0:3306)/ex5go")
-	ThrowError(err)
-	defer db.Engine.Close()
+	err := db.Connect()
+	if err != nil {
+		log.Fatal(err)
+	}
 	ctx = context.Background()
-	usv = UserPartner5{Db: db}
+	usv = UserPartnerService{Db: db}
 
 	go Start()
-	if err = RunGrpcServer(ctx, usv); err != nil {
+	if err := RunGrpcServer(ctx, usv); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
@@ -36,7 +37,7 @@ func Run5() {
 }
 
 // RunGrpcServer chay grpc server
-func RunGrpcServer(ctx context.Context, usv UserPartner5) error {
+func RunGrpcServer(ctx context.Context, usv UserPartnerService) error {
 	listen, err := net.Listen("tcp", ":3001")
 	if err != nil {
 		return err
@@ -44,7 +45,7 @@ func RunGrpcServer(ctx context.Context, usv UserPartner5) error {
 
 	// register service
 	server := grpc.NewServer()
-	rpc.RegisterUserPartnerService5Server(server, &usv)
+	RegisterUserPartnerServiceServer(server, &usv)
 
 	// graceful shutdown
 	c := make(chan os.Signal, 1)

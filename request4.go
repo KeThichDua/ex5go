@@ -23,13 +23,13 @@ var ctx context.Context
 func Run4() {
 	// ket noi mysql
 	var db db.Database
-	err := db.Connect("mysql", "root:1@tcp(0.0.0.0:3306)/ex5go")
+	err := db.Connect()
 	ThrowError(err)
 	defer db.Engine.Close()
 	ctx = context.Background()
 	us = UserPartnerService{Db: db}
 
-	if err = RunServer(ctx, us); err != nil {
+	if err := RunServer(ctx, us); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}

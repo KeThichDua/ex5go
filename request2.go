@@ -13,29 +13,27 @@ import (
 // Run2 Viết một message UserPartnerRequest nhằm tạo 1 query xorm. Bao gồm lấy userpartner theo
 // user_id, phone, với limit là số lượng row lớn nhất được quét ra. Với id được genere ngẫu nhiên với xid
 func Run2() {
-	// ket noi mysql
 	var d db.Database
-	err := d.Connect("mysql", "root:1@tcp(0.0.0.0:3306)/ex5go")
+	err := d.Connect()
 	ThrowError(err)
-	defer d.Engine.Close()
 
 	// anh xa bang
 	err = d.CreateTable()
 	ThrowError(err)
 	err = d.Sync2()
 	ThrowError(err)
-
+	// var err error
 	// insert 1 vai ban ghi
 	for i := 0; i < 10; i++ {
 		guid := xid.New()
 		guid1 := xid.New()
-		user := rpc.UserPartner{Id: guid.String(), UserId: guid.String(), Phone: guid1.String()}
-		err = d.InsertUser(&user)
+		user := db.UserPartner{Id: guid.String(), UserId: guid.String(), Phone: guid1.String()}
+		err = d.InsertUser(user)
 		ThrowError(err)
 	}
 
 	// thuc hien UserPartnerRequest
-	userId := "bsb6j7c94tcoa6gikbn0"
+	userId := "1"
 	phone := ""
 	limit := int64(5)
 	in := rpc.UserPartnerRequest{UserId: userId, Phone: phone, Limit: limit}
