@@ -46,10 +46,6 @@ func Commands() {
 }
 
 func main() {
-	// Run2()
-	// Run3()
-	// Run4()
-	// reqres5.Run5()
 	Commands()
 	err := app.Run(os.Args)
 	if err != nil {

@@ -12,9 +12,9 @@ func Run3() {
 	// mapping url ứng với hàm routing echo
 	http.HandleFunc("/", echo)
 	// địa chỉ http://127.0.0.1:3001/
+	fmt.Println("Server is running on port 3001..")
 	err := http.ListenAndServe(":3001", nil)
 	// log ra lỗi nếu bị trùng port
-	fmt.Println("Server is running on port 3001..")
 	if err != nil {
 		log.Fatal(err)
 	}
