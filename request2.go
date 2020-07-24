@@ -33,10 +33,10 @@ func Run2() {
 	}
 
 	// thuc hien UserPartnerRequest
-	userId := "1"
+	userID := "1"
 	phone := ""
 	limit := int64(5)
-	in := rpc.UserPartnerRequest{UserId: userId, Phone: phone, Limit: limit}
+	in := rpc.UserPartnerRequest{UserId: userID, Phone: phone, Limit: limit}
 	out, err := d.Request(&in)
 	ThrowError(err)
 	// Kiem tra out

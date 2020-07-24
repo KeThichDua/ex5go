@@ -24,7 +24,10 @@ func Run4() {
 	// ket noi mysql
 	var db db.Database
 	err := db.Connect()
-	ThrowError(err)
+	if err != nil {
+		ThrowError(err)
+		log.Fatal()
+	}
 	defer db.Engine.Close()
 	ctx = context.Background()
 	us = UserPartnerService{Db: db}

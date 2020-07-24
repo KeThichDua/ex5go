@@ -9,6 +9,7 @@ require (
 	github.com/golang/protobuf v1.4.1
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/rs/xid v1.2.1
+	github.com/urfave/cli v1.22.4
 	google.golang.org/grpc v1.30.0
 	google.golang.org/protobuf v1.25.0
 	xorm.io/xorm v1.0.3

@@ -12,10 +12,12 @@ type UserPartnerService struct {
 	Db db.Database
 }
 
+// Request UserPartnerService
 func (s *UserPartnerService) Request(ctx context.Context, in *rpc.UserPartnerRequest) (*rpc.UserPartnerResponse, error) {
 	return nil, nil
 }
 
+// Read UserPartnerService
 func (s *UserPartnerService) Read(ctx context.Context, in *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	c, err := s.Db.GetUser(in.UserId)
 	if err != nil {
